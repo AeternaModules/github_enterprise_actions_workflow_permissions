@@ -1,6 +1,6 @@
-variable "enterprise_actions_workflow_permissionses" {
+variable "enterprise_actions_workflow_permissions" {
   description = <<EOT
-Map of enterprise_actions_workflow_permissionses, attributes below
+Map of enterprise_actions_workflow_permissions, attributes below
 Required:
     - enterprise_slug
 Optional:
@@ -15,7 +15,7 @@ EOT
   }))
   validation {
     condition = alltrue([
-      for k, v in var.enterprise_actions_workflow_permissionses : (
+      for k, v in var.enterprise_actions_workflow_permissions : (
         v.default_workflow_permissions == null || (contains(["read", "write"], v.default_workflow_permissions))
       )
     ])
